@@ -1,52 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Braindrops.Variance.EricLippert.Model.Animal" Collapsed="true">
+  <Class Name="Braindrops.Variance.Tests.Model.Animal" Collapsed="true">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tests\Model\Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Braindrops.Variance.EricLippert.Model.Mammal" Collapsed="true">
+  <Class Name="Braindrops.Variance.Tests.Model.Mammal" Collapsed="true">
     <Position X="1.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tests\Model\Animal.cs</FileName>
+      <FileName>Tests\Model\Mammal.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Braindrops.Variance.EricLippert.Model.Reptile" Collapsed="true">
+  <Class Name="Braindrops.Variance.Tests.Model.Reptile" Collapsed="true">
     <Position X="6" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tests\Model\Animal.cs</FileName>
+      <FileName>Tests\Model\Reptile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Braindrops.Variance.EricLippert.Model.Giraffe" Collapsed="true">
+  <Class Name="Braindrops.Variance.Tests.Model.Giraffe" Collapsed="true">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tests\Model\Animal.cs</FileName>
+      <FileName>Tests\Model\Giraffe.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Braindrops.Variance.EricLippert.Model.Tiger" Collapsed="true">
+  <Class Name="Braindrops.Variance.Tests.Model.Tiger" Collapsed="true">
     <Position X="2.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tests\Model\Animal.cs</FileName>
+      <FileName>Tests\Model\Tiger.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Braindrops.Variance.EricLippert.Model.Snake" Collapsed="true">
+  <Class Name="Braindrops.Variance.Tests.Model.Snake" Collapsed="true">
     <Position X="7.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tests\Model\Animal.cs</FileName>
+      <FileName>Tests\Model\Snake.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Braindrops.Variance.EricLippert.Model.Turtle" Collapsed="true">
+  <Class Name="Braindrops.Variance.Tests.Model.Turtle" Collapsed="true">
     <Position X="5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Tests\Model\Animal.cs</FileName>
+      <FileName>Tests\Model\Turtle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

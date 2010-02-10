@@ -61,10 +61,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Model\Animal.cs" />
     <Compile Include="Tests\CSharp2BuiltinVariance.cs" />
     <Compile Include="Tests\IReading.cs" />
     <Compile Include="Tests\IWriting.cs" />
+    <Compile Include="Tests\Model\Giraffe.cs" />
+    <Compile Include="Tests\Model\Mammal.cs" />
+    <Compile Include="Tests\Model\Reptile.cs" />
+    <Compile Include="Tests\Model\Snake.cs" />
+    <Compile Include="Tests\Model\Tiger.cs" />
+    <Compile Include="Tests\Model\Turtle.cs" />
     <Compile Include="Tests\Reading.cs" />
     <Compile Include="Tests\ReadWrite.cs" />
     <Compile Include="Tests\When_checking_variances_on_interfaces.cs" />
@@ -89,10 +96,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
+    <None Include="Tests\Model\Visual.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

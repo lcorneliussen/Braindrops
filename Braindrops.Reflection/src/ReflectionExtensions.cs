@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using Castle.Core;
 
 namespace Braindrops.Reflection
 {
@@ -19,11 +20,10 @@ namespace Braindrops.Reflection
         {
             if (type == null) throw new ArgumentNullException("type");
 
-            /*
             if (ProxyServices.IsDynamicProxy(type))
             {
                 return getProxyDisplayName(type);
-            }*/
+            }
 
             var sb = new StringBuilder();
 
