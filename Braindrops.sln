@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.Variance", "Braindrops.Variance\src\Braindrops.Variance.csproj", "{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.Reflection", "Braindrops.Reflection\src\Braindrops.Reflection.csproj", "{16D51386-42F8-49D1-A349-369AC023998E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D51386-42F8-49D1-A349-369AC023998E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D51386-42F8-49D1-A349-369AC023998E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D51386-42F8-49D1-A349-369AC023998E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D51386-42F8-49D1-A349-369AC023998E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
