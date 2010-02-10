@@ -1,0 +1,10 @@
+$ cat .gitignore
+
+bin/**/*
+obj/**/*
+*.suo 
+*.user 
+*.bak 
+.ReSharper*/**/*
+_ReSharper*.* 
+StyleCop.Cache/**/*
