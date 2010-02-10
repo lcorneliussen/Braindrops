@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2BE5223-2ECE-41DA-8634-E63596064BA8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Braindrops.VariantPubSub</RootNamespace>
+    <AssemblyName>Braindrops.VariantPubSub</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\Castle\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\CommonLogging\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework, Version=2.5.3.9345, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\RhinoMocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IEventHub.cs" />
+    <Compile Include="ISubscriber.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistryEntry.cs" />
+    <Compile Include="SubscriptionRegistry.cs" />
+    <Compile Include="Test\BaseObj.cs" />
+    <Compile Include="Test\DerivedObj.cs" />
+    <Compile Include="Test\IEvent.cs" />
+    <Compile Include="Test\Publishing\arbitrary_subscriptions.cs" />
+    <Compile Include="Test\Publishing\When_publishing_baseObj.cs" />
+    <Compile Include="Test\Publishing\When_publishing_derivedObj.cs" />
+    <Compile Include="Test\Publishing\When_publishing_derivedObj_as_baseObj.cs" />
+    <Compile Include="Test\Publishing\When_publishing_derivedObj_in_event_of_baseObj.cs" />
+    <Compile Include="Test\Publishing\When_publishing_event_of_baseObj.cs" />
+    <Compile Include="Test\Publishing\When_publishing_event_of_baseObj_as_event_of_derivedObject.cs" />
+    <Compile Include="Test\Publishing\When_publishing_event_of_derivedObj.cs" />
+    <Compile Include="Test\Publishing\When_publishing_event_of_derivedObj_as_event_of_baseObject.cs" />
+    <Compile Include="Test\Publishing\When_publishing_int.cs" />
+    <Compile Include="Test\Publishing\When_publishing_int_as_object.cs" />
+    <Compile Include="Test\Publishing\When_publishing_object_as_int.cs" />
+    <Compile Include="Test\Publishing\When_publishing_private_event_of_baseObj.cs" />
+    <Compile Include="Test\Subscribing\When_creating_transient_event_hub.cs" />
+    <Compile Include="Test\Subscribing\When_inspecting_subscriber_of_object.cs" />
+    <Compile Include="Test\Subscribing\When_inspecting_subscriber_of_string.cs" />
+    <Compile Include="Test\Subscribing\When_subscribing_to_BaseObj.cs" />
+    <Compile Include="Test\Subscribing\When_subscribing_to_DerivedObj.cs" />
+    <Compile Include="Test\Subscribing\When_subscribing_to_Event_of_BaseObj.cs" />
+    <Compile Include="Test\Subscribing\When_subscribing_to_Event_of_DerivedObj.cs" />
+    <Compile Include="Test\Subscribing\When_subscribing_to_Event_of_object.cs" />
+    <Compile Include="Test\Subscribing\When_subscribing_to_int.cs" />
+    <Compile Include="TransientEventHub.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Braindrops.Reflection\src\Braindrops.Reflection.csproj">
+      <Project>{16D51386-42F8-49D1-A349-369AC023998E}</Project>
+      <Name>Braindrops.Reflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Braindrops.Testing\src\Braindrops.Testing.csproj">
+      <Project>{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}</Project>
+      <Name>Braindrops.Testing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Braindrops.Variance\src\Braindrops.Variance.csproj">
+      <Project>{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}</Project>
+      <Name>Braindrops.Variance</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
