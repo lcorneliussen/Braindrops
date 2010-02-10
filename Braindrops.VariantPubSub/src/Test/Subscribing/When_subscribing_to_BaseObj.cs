@@ -1,6 +1,6 @@
 using System.Linq;
-using Braindrops.Variance;
 using Braindrops.Testing;
+using Braindrops.Variance;
 using NUnit.Framework;
 
 namespace Braindrops.VariantPubSub.Test.Subscribing

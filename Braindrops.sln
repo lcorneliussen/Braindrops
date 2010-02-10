@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.VariantPubSub", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.Testing", "Braindrops.Testing\src\Braindrops.Testing.csproj", "{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.Freezable", "Braindrops.Freezable\src\Braindrops.Freezable.csproj", "{F10C5C29-6C55-4A87-AE77-E16CE7368E40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

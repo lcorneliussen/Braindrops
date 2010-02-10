@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}</ProjectGuid>
+    <ProjectGuid>{F10C5C29-6C55-4A87-AE77-E16CE7368E40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Braindrops.Testing</RootNamespace>
-    <AssemblyName>Braindrops.Testing</AssemblyName>
+    <RootNamespace>Braindrops.Freezable</RootNamespace>
+    <AssemblyName>Braindrops.Freezable</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,10 +47,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libs\NUnit\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libs\RhinoMocks\Rhino.Mocks.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -65,26 +61,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseTest.cs" />
-    <Compile Include="EnumerableExtensions.cs" />
-    <Compile Include="InstanceContextSpecification.cs" />
+    <Compile Include="CloneHelper.cs" />
+    <Compile Include="FreezableExtensions.cs" />
+    <Compile Include="Freezer.cs" />
+    <Compile Include="FreezeResultsAttribute.cs" />
+    <Compile Include="FreezesAttribute.cs" />
+    <Compile Include="IFreezable.cs" />
+    <Compile Include="IFreezeme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Race.cs" />
-    <Compile Include="RaceTest.cs" />
-    <Compile Include="ReflectionExtensions.cs" />
-    <Compile Include="RepetitionExtensions.cs" />
-    <Compile Include="RhinoMocksExtensions.cs" />
-    <Compile Include="SpecificationExtensions.cs" />
-    <Compile Include="StaticContextSpecification.cs" />
-    <Compile Include="StopAndGoThread.cs" />
-    <Compile Include="TestStopwatch.cs" />
-    <Compile Include="Tests\StopAndGoThreadTest.cs" />
-    <Compile Include="Tests\TestStopwatchTests\TestAccuracy.cs" />
-    <Compile Include="TestWithMocks.cs" />
-    <Compile Include="Try.cs" />
-    <Compile Include="TypeSpecificationExtensions.cs" />
-    <Compile Include="UriSpecificationExtensions.cs" />
-    <Compile Include="XPathNavigatorExtensions.cs" />
+    <Compile Include="Tests\CanFreezeTests.cs" />
+    <Compile Include="Tests\CloneTest.cs" />
+    <Compile Include="Tests\DeepObjectTests.cs" />
+    <Compile Include="Tests\FreezeMethodTests.cs" />
+    <Compile Include="Tests\SinglePropertyTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Braindrops.Reflection\src\Braindrops.Reflection.csproj">
+      <Project>{16D51386-42F8-49D1-A349-369AC023998E}</Project>
+      <Name>Braindrops.Reflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Braindrops.Testing\src\Braindrops.Testing.csproj">
+      <Project>{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}</Project>
+      <Name>Braindrops.Testing</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
