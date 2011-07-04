@@ -9,3 +9,5 @@ _ReSharper.*
 *.cache
 ~$*
 StyleCop.Cache/*
+*.nupkg
+target
