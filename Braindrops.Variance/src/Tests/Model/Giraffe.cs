@@ -2,5 +2,8 @@
 {
     public class Giraffe : Mammal
     {
+        public Giraffe(string nickname) : base(nickname)
+        {
+        }
     }
 }

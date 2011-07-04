@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Braindrops.Reflection;
 using Braindrops.Variance;
+using Minimod.PrettyTypeSignatures;
 
 namespace Braindrops.VariantPubSub
 {
@@ -18,7 +19,7 @@ namespace Braindrops.VariantPubSub
         public void Register(ISubscriber subscriber)
         {
             IEnumerable<Type> interfaces = subscriber.GetType().GetInterfaces()
-                .Where(i => i.IsGenericTypeOf(typeof (ISubscriber<>)));
+                .Where(i => i.IsGenericTypeOf(typeof(ISubscriber<>)));
 
             foreach (Type interf in interfaces)
             {
@@ -27,7 +28,7 @@ namespace Braindrops.VariantPubSub
                                           {
                                               Guid = Guid.NewGuid(),
                                               Subscriber = subscriber,
-                                              EventType = interf.GetGenericArgumentsFor(typeof (ISubscriber<>))[0]
+                                              EventType = interf.GetGenericArgumentsFor(typeof(ISubscriber<>))[0]
                                           });
             }
         }
@@ -39,7 +40,7 @@ namespace Braindrops.VariantPubSub
 
         public IEnumerable<ISubscriber<EventType>> GetSubscribers<EventType>()
         {
-            return GetSubscribers<EventType>(typeof (EventType));
+            return GetSubscribers<EventType>(typeof(EventType));
         }
 
         public IEnumerable<ISubscriber<EventType>> GetSubscribers<EventType>(Type expectedEventType)
@@ -56,8 +57,8 @@ namespace Braindrops.VariantPubSub
             {
                 string message = string.Format(
                                                   "The instance eventData of type ({0}) is not variant to asEventType ({1})",
-                                                  eventData.GetType().GetDisplayName(),
-                                                  asEventType.GetDisplayName());
+                                                  eventData.GetType().GetPrettyName(),
+                                                  asEventType.GetPrettyName());
 
                 throw new ArgumentException(message);
             }
@@ -88,7 +89,7 @@ namespace Braindrops.VariantPubSub
 
         public void Publish<AsType>(object eventData)
         {
-            Publish(typeof (AsType), eventData);
+            Publish(typeof(AsType), eventData);
         }
 
         #endregion

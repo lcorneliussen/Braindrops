@@ -1,5 +1,6 @@
 using Braindrops.Reflection;
 using Braindrops.Testing;
+using Minimod.PrettyTypeSignatures;
 using Rhino.Mocks;
 
 namespace Braindrops.VariantPubSub.Test.Publishing
@@ -41,7 +42,7 @@ namespace Braindrops.VariantPubSub.Test.Publishing
         private void fakeName(ISubscriber sub)
         {
             sub.Expect(o => o.DisplayName).Repeat.Any()
-                .Return(sub.GetType().GetDisplayName());
+                .Return(sub.GetType().GetPrettyName());
         }
 
         protected abstract void setupExpectations();

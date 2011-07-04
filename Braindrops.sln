@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.Variance", "Braindrops.Variance\src\Braindrops.Variance.csproj", "{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.Reflection", "Braindrops.Reflection\src\Braindrops.Reflection.csproj", "{16D51386-42F8-49D1-A349-369AC023998E}"
@@ -11,32 +11,56 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.Testing", "Brain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.Freezable", "Braindrops.Freezable\src\Braindrops.Freezable.csproj", "{F10C5C29-6C55-4A87-AE77-E16CE7368E40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braindrops.MiniMods", "Braindrops.MiniMods\Braindrops.MiniMods.csproj", "{04411979-C34B-4849-AC57-10B32F0F64B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{9D3B7054-9B95-4519-8F62-F71868C7DC0E}"
+	ProjectSection(SolutionItems) = preProject
+		pom.xml = pom.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug .NET 4.0|Any CPU = Debug .NET 4.0|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Debug .NET 4.0|Any CPU.ActiveCfg = Debug .NET 4.0|Any CPU
+		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Debug .NET 4.0|Any CPU.Build.0 = Debug .NET 4.0|Any CPU
 		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36F86F0A-FF45-40E4-B479-AEC00B9D84C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D51386-42F8-49D1-A349-369AC023998E}.Debug .NET 4.0|Any CPU.ActiveCfg = Debug .NET 4.0|Any CPU
+		{16D51386-42F8-49D1-A349-369AC023998E}.Debug .NET 4.0|Any CPU.Build.0 = Debug .NET 4.0|Any CPU
 		{16D51386-42F8-49D1-A349-369AC023998E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{16D51386-42F8-49D1-A349-369AC023998E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16D51386-42F8-49D1-A349-369AC023998E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16D51386-42F8-49D1-A349-369AC023998E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2BE5223-2ECE-41DA-8634-E63596064BA8}.Debug .NET 4.0|Any CPU.ActiveCfg = Debug .NET 4.0|Any CPU
+		{A2BE5223-2ECE-41DA-8634-E63596064BA8}.Debug .NET 4.0|Any CPU.Build.0 = Debug .NET 4.0|Any CPU
 		{A2BE5223-2ECE-41DA-8634-E63596064BA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A2BE5223-2ECE-41DA-8634-E63596064BA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2BE5223-2ECE-41DA-8634-E63596064BA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2BE5223-2ECE-41DA-8634-E63596064BA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Debug .NET 4.0|Any CPU.ActiveCfg = Debug .NET 4.0|Any CPU
+		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Debug .NET 4.0|Any CPU.Build.0 = Debug .NET 4.0|Any CPU
 		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E61178A1-2CD0-43EB-AA5B-7BC5F73334D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Debug .NET 4.0|Any CPU.ActiveCfg = Debug .NET 4.0|Any CPU
+		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Debug .NET 4.0|Any CPU.Build.0 = Debug .NET 4.0|Any CPU
 		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F10C5C29-6C55-4A87-AE77-E16CE7368E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04411979-C34B-4849-AC57-10B32F0F64B1}.Debug .NET 4.0|Any CPU.ActiveCfg = Debug|Any CPU
+		{04411979-C34B-4849-AC57-10B32F0F64B1}.Debug .NET 4.0|Any CPU.Build.0 = Debug|Any CPU
+		{04411979-C34B-4849-AC57-10B32F0F64B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04411979-C34B-4849-AC57-10B32F0F64B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04411979-C34B-4849-AC57-10B32F0F64B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04411979-C34B-4849-AC57-10B32F0F64B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

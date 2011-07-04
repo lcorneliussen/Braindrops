@@ -1,159 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using Castle.Core;
+using Minimod.PrettyTypeSignatures;
 
 namespace Braindrops.Reflection
 {
     public static class ReflectionExtensions
     {
-        public static string GetDisplayName(this Type type)
-        {
-            return getDisplayName(type, null);
-        }
-
-        private static string getDisplayName(Type type, Type[] genericArguments)
-        {
-            if (type == null) throw new ArgumentNullException("type");
-
-            if (ProxyServices.IsDynamicProxy(type))
-            {
-                return getProxyDisplayName(type);
-            }
-
-            var sb = new StringBuilder();
-
-            int declaringGenArgsCount = 0;
-            if (type.DeclaringType != null && !type.IsGenericParameter)
-            {
-                if (type.DeclaringType.IsGenericType)
-                {
-                    declaringGenArgsCount = type.DeclaringType.GetGenericArguments().Length;
-                    Type[] leadingGenericArguments = type.GetGenericArguments()
-                        .Take(declaringGenArgsCount)
-                        .ToArray();
-                    sb.Append(getDisplayName(type.DeclaringType, leadingGenericArguments));
-                }
-                else
-                {
-                    sb.Append(type.DeclaringType.GetDisplayName());
-                }
-
-                sb.Append("+");
-            }
-
-            Type[] trailingGenericArguments = genericArguments
-                                              ?? type.GetGenericArguments()
-                                                     .Skip(declaringGenArgsCount)
-                                                     .ToArray();
-
-            if (trailingGenericArguments.Length == 0)
-            {
-                sb.Append(type.Name);
-                return sb.ToString();
-            }
-
-            IEnumerable<string> displayNames = trailingGenericArguments.Select(t => t.GetDisplayName());
-
-            sb.Append(type.Name.Substring(0, type.Name.IndexOf('`')));
-            sb.Append("<");
-            sb.Append(string.Join(",", displayNames.ToArray()));
-            sb.Append(">");
-
-            return sb.ToString();
-        }
-
-        private static string getProxyDisplayName(Type type)
-        {
-            if (type == null) throw new ArgumentNullException("type");
-
-            string proxyOf = "DynamicProxy->";
-
-            if (type.BaseType != typeof (object))
-            {
-                return proxyOf + type.BaseType.GetDisplayName();
-            }
-
-            string[] interfaces = type.GetInterfaces().Select(i => i.GetDisplayName()).ToArray();
-
-            if (interfaces.Length == 0)
-            {
-                return proxyOf + "<unknown>";
-            }
-
-            if (interfaces.Length == 1)
-            {
-                return proxyOf + interfaces[0];
-            }
-
-            return proxyOf + "[" + string.Join(", ", interfaces) + "]";
-        }
-
-        public static string GetDisplayName(this MethodBase method)
-        {
-            if (method == null) throw new ArgumentNullException("method");
-
-            var sb = new StringBuilder();
-
-            // dynamic methods don't have a declaring type
-            if (method.DeclaringType != null)
-            {
-                sb.Append(method.DeclaringType.GetDisplayName());
-                sb.Append(".");
-            }
-
-            sb.Append(method.Name);
-
-            if (method.IsGenericMethod)
-            {
-                sb.Append("<");
-                sb.Append(string.Join(",", method.GetGenericArguments().Select(t => t.GetDisplayName()).ToArray()));
-                sb.Append(">");
-            }
-
-            sb.Append("(");
-
-            string[] parameters = method.GetParameters()
-                .Select(p => (p.IsOut ? "out " : string.Empty) + p.ParameterType.GetDisplayName() + " " + p.Name)
-                .ToArray();
-
-            sb.Append(String.Join(", ", parameters));
-            sb.Append(")");
-            if (method is MethodInfo)
-            {
-                sb.Append(" : " + ((MethodInfo) method).ReturnType.GetDisplayName());
-            }
-
-            return sb.ToString();
-        }
-
-        public static string GetDisplayName(this StackFrame frame)
-        {
-            if (frame == null) throw new ArgumentNullException("frame");
-
-            var sb = new StringBuilder();
-
-            MethodBase method = frame.GetMethod();
-            sb.Append(method.GetDisplayName());
-
-            string fileName = frame.GetFileName();
-            if (fileName != null)
-            {
-                sb.Append(" in ");
-                sb.Append(fileName);
-                sb.Append(":");
-                sb.Append(frame.GetFileLineNumber());
-                sb.Append(":");
-                sb.Append(frame.GetFileColumnNumber());
-            }
-
-            return sb.ToString();
-        }
-
         public static Type GetMostSpecificInterfaceIn(this Type @interface, Type implementation)
         {
             if (@interface == null) throw new ArgumentNullException("interface");
@@ -164,7 +19,7 @@ namespace Braindrops.Reflection
             var result = (from i in implementedInterfaces
                           let count = i.GetInterfaces().Where(@interface.IsAssignableFrom).Count()
                           orderby count descending
-                          select new {Count = count, Interface = i}).ToArray();
+                          select new { Count = count, Interface = i }).ToArray();
 
             if (result.Length < 2)
             {
@@ -176,7 +31,7 @@ namespace Braindrops.Reflection
 
             if (withTopCount.Length > 1)
             {
-                string[] interfaces = withTopCount.Select(r => r.Interface.GetDisplayName()).ToArray();
+                string[] interfaces = withTopCount.Select(r => r.Interface.GetPrettyName()).ToArray();
                 throw new NotSupportedException(
                     "Can't decide between " + string.Join(", ", interfaces));
             }
@@ -187,12 +42,12 @@ namespace Braindrops.Reflection
         public static AttributeType GetCustomAttribute<AttributeType>(this MemberInfo member, bool inherit)
             where AttributeType : Attribute
         {
-            return (AttributeType) member.GetCustomAttribute(typeof (AttributeType), inherit);
+            return (AttributeType)member.GetCustomAttribute(typeof(AttributeType), inherit);
         }
 
         public static Attribute GetCustomAttribute(this MemberInfo member, Type attributeType, bool inherit)
         {
-            return (Attribute) member.GetCustomAttributes(attributeType, inherit).SingleOrDefault();
+            return (Attribute)member.GetCustomAttributes(attributeType, inherit).SingleOrDefault();
         }
 
         public static IDictionary<Type, AttributeType> CollectCustomAttributes<AttributeType>(this Type type)
@@ -250,13 +105,13 @@ namespace Braindrops.Reflection
         {
             return method.CollectCustomAttributes<MethodInfo, AttributeType>(
                                                                                 delegate(MethodInfo info)
-                                                                                    {
-                                                                                        MethodInfo definition =
-                                                                                            info.GetBaseDefinition();
-                                                                                        return definition == info
-                                                                                                   ? null
-                                                                                                   : definition;
-                                                                                    });
+                                                                                {
+                                                                                    MethodInfo definition =
+                                                                                        info.GetBaseDefinition();
+                                                                                    return definition == info
+                                                                                               ? null
+                                                                                               : definition;
+                                                                                });
         }
 
         public static IDictionary<PropertyInfo, AttributeType> CollectCustomAttributes<AttributeType>(
@@ -307,8 +162,8 @@ namespace Braindrops.Reflection
                 throw new ArgumentException(
                     string.Format(
                                      "The type '{0}' is not a generic type of {1}.",
-                                     type.GetDisplayName(),
-                                     genericTypeDefinition.GetDisplayName()),
+                                     type.GetPrettyName(),
+                                     genericTypeDefinition.GetPrettyName()),
                     "type");
             }
 
@@ -420,7 +275,7 @@ namespace Braindrops.Reflection
         {
             if (expression.Body is MemberExpression)
             {
-                return ((MemberExpression) expression.Body).Member.Name;
+                return ((MemberExpression)expression.Body).Member.Name;
             }
 
             throw new ArgumentException(
@@ -431,7 +286,7 @@ namespace Braindrops.Reflection
         {
             try
             {
-                typeof (Exception).GetMethod(
+                typeof(Exception).GetMethod(
                                                 "InternalPreserveStackTrace",
                                                 BindingFlags.Instance | BindingFlags.NonPublic).
                     Invoke(exc, null);
